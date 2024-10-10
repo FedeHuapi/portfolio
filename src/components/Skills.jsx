@@ -1,5 +1,13 @@
 
 import { forwardRef } from 'react';
+import reactLogo from "../assets/react.svg"
+import tsLogo from "../assets/typescript.svg"
+import expressLogo from "../assets/express.svg"
+import jsLogo from '../assets/javascript.svg'
+import postgresLogo from '../assets/postgres.svg'
+import reduxLogo from '../assets/redux.svg'
+import mongoLogo from '../assets/mongo.svg'
+
 
 const Skills = forwardRef((props, ref) => {
   const skills = [
@@ -14,6 +22,16 @@ const Skills = forwardRef((props, ref) => {
       ref={ref} 
       className="py-20 px-4 bg-white dark:bg-gray-900"
     >
+      <div className='flex flex-row m-10'>
+      <h2>Icono SVG importado como componente:</h2>
+      <img src={reactLogo} alt="React Logo" width="70" height="100" className='m-4'/>
+      <img src={tsLogo} alt="Typescript Logo" width="70" height="100" className='m-4'/>
+      <img src={expressLogo} alt="Express Logo" className='w-16 h-16 m-4' />
+      <img src={jsLogo} alt="Javascript Logo" className='w-16 h-16 m-4' />
+      <img src={postgresLogo} alt="Postgres Logo" className='w-16 h-16 m-4' />
+      <img src={reduxLogo} alt="Redux Logo" className='w-16 h-16 m-4' />
+      <img src={mongoLogo} alt="Mongo Logo" className='w-16 h-16 m-4' />
+      </div>
       <div className="container mx-auto max-w-4xl">
         <div className="text-center space-y-4 mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r 

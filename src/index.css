@@ -2,4 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Estilos adicionales para debug */
+body {
+  background-color: lightblue;
+}
 
+.text-red-500 {
+  color: red;
+}

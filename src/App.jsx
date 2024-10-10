@@ -1,21 +1,30 @@
-import Navbar from "./components/Navbar"
-import About from "./components/About"
-import Projects from "./components/Projects"
-import Skills from "./components/Skills"
-import Contact from "./components/Contact"
+import  { useState } from 'react';
+import Header from './components/Header';
+import About from './components/About';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
+import Skills from './components/Skills';
 
-function App() {
 
+
+const App = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <>
-      <Navbar />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
-    </>
-  )
-}
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+      <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      
+      <main className="container mx-auto px-4 py-8">
+        
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
+      </main>
 
-export default App
+
+    </div>
+  );
+};
+
+export default App;
