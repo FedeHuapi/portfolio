@@ -5,7 +5,6 @@ import gitLogo from '../assets/github.svg'
 import inLogo from '../assets/in.svg'
 import emailLogo from '../assets/mail.svg'
 
-
 const InputWrapper = forwardRef(({ children, icon: Icon }) => (
   <div className="relative">
     <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
@@ -21,6 +20,15 @@ InputWrapper.propTypes = {
 };
 
 const Contact = forwardRef((props, ref) => {
+  // Constantes para las URLs de las redes sociales - Reemplaza con tus propios enlaces
+  const GITHUB_URL = "https://github.com/FedeHuapi";
+  const LINKEDIN_URL = "https://www.linkedin.com/in/federico-curto-318227288/";
+  const EMAIL = "federicocurto00@gmail.com";
+
+  const handleEmailClick = () => {
+    window.location.href = `mailto:${EMAIL}`;
+  };
+
   return (
     <section ref={ref} className="py-20 px-4 bg-white dark:bg-gray-900">
       <div className="container mx-auto max-w-4xl">
@@ -66,19 +74,54 @@ const Contact = forwardRef((props, ref) => {
             <span>Enviar mensaje</span>
             <Send className="w-5 h-5" />
           </button>
-          <div className='flex flex-row'>
-          <img src={gitLogo} alt="Github cLogo" className='w-10 h-16 m-4 ml-28' />
-          <img src={inLogo} alt="Linkedin cLogo" className='w-10 h-16 m-4 ml-28' />
-          <img src={emailLogo} alt="Email cLogo" className='w-10 h-16 m-4 ml-28' />
+
+          <div className="flex justify-center items-center space-x-8 mt-8">
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-button group"
+            >
+              <img 
+                src={gitLogo} 
+                alt="Github" 
+                className="w-10 h-10 transition-transform duration-300 group-hover:scale-110" 
+              />
+            </a>
+            
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-button group"
+            >
+              <img 
+                src={inLogo} 
+                alt="LinkedIn" 
+                className="w-10 h-10 transition-transform duration-300 group-hover:scale-110" 
+              />
+            </a>
+            
+            <button
+              onClick={handleEmailClick}
+              className="social-button group"
+            >
+              <img 
+                src={emailLogo} 
+                alt="Email" 
+                className="w-10 h-10 transition-transform duration-300 group-hover:scale-110" 
+              />
+            </button>
           </div>
         </form>
+
+
       </div>
     </section>
   );
 });
 
 Contact.propTypes = {
-
   className: PropTypes.string,
   onSubmit: PropTypes.func
 };
