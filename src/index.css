@@ -2,11 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Estilos adicionales para debug */
-body {
-  background-color: lightblue;
+@keyframes moveLogos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
-.text-red-500 {
-  color: red;
+.skills-logos {
+  display: flex;
+  gap: 2rem;
+  animation: moveLogos 20s linear infinite;
+  width: 200%; /* Doble del contenedor para que las imágenes vuelvan a comenzar */
+}
+
+.skills-logos > div {
+  min-width: 10%;
 }

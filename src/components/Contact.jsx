@@ -1,6 +1,10 @@
 import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { Send, Mail, User, MessageSquare } from 'lucide-react';
+import gitLogo from '../assets/github.svg'
+import inLogo from '../assets/in.svg'
+import emailLogo from '../assets/mail.svg'
+
 
 const InputWrapper = forwardRef(({ children, icon: Icon }) => (
   <div className="relative">
@@ -62,6 +66,11 @@ const Contact = forwardRef((props, ref) => {
             <span>Enviar mensaje</span>
             <Send className="w-5 h-5" />
           </button>
+          <div className='flex flex-row'>
+          <img src={gitLogo} alt="Github cLogo" className='w-10 h-16 m-4 ml-28' />
+          <img src={inLogo} alt="Linkedin cLogo" className='w-10 h-16 m-4 ml-28' />
+          <img src={emailLogo} alt="Email cLogo" className='w-10 h-16 m-4 ml-28' />
+          </div>
         </form>
       </div>
     </section>
@@ -69,12 +78,11 @@ const Contact = forwardRef((props, ref) => {
 });
 
 Contact.propTypes = {
-  // Si necesitas añadir props específicas al componente Contact, las puedes añadir aquí
+
   className: PropTypes.string,
   onSubmit: PropTypes.func
 };
 
-// Añadimos displayName a ambos componentes
 InputWrapper.displayName = 'InputWrapper';
 Contact.displayName = 'Contact';
 

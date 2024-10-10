@@ -4,6 +4,7 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Skills from './components/Skills';
+// import SliderComponent from './components/ui/SliderComponent';
 
 
 
@@ -18,6 +19,7 @@ const App = () => {
         
         <About />
         <Skills />
+        {/* <SliderComponent /> */}
         <Projects />
         <Contact />
       </main>
