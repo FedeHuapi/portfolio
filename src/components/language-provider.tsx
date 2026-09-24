@@ -36,7 +36,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>("en");
 
   useEffect(() => {
-    setLocaleState(detectInitialLocale());
+    setLocaleState(detectInitialLocale()); //<--- no es un error de codigo
   }, []);
 
   useEffect(() => {

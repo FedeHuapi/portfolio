@@ -6,11 +6,7 @@ const BASE_WEIGHT = 450;
 const MAX_WEIGHT = 800;
 const RADIUS = 200;
 
-/**
- * The name is set in a variable font; each letter gets heavier the closer the
- * pointer is to it. Weight is written straight to the DOM, so pointer moves
- * never trigger a React render.
- */
+
 export function HeroName({ name }: { name: string }) {
   const rootRef = useRef<HTMLHeadingElement>(null);
 

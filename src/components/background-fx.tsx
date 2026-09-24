@@ -1,4 +1,3 @@
-/** Fixed page background: three soft colour orbs that drift slowly and independently. */
 export function BackgroundFx() {
   return (
     <div aria-hidden className="bg-fx">

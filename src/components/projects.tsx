@@ -7,8 +7,6 @@ import { projects, type Project } from "@/data/projects";
 const actionLink =
   "inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium transition-colors duration-300 hover:border-accent hover:bg-accent/10 hover:text-accent";
 
-// Opening the live demo (or the repo, if there's no demo yet) is the row's main
-// action; the two pills below stay independently clickable via stopPropagation.
 function primaryUrl(project: Project) {
   return project.liveUrl ?? project.codeUrl;
 }

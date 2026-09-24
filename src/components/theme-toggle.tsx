@@ -8,7 +8,7 @@ export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => setMounted(true), []); // <---- es un error intencional de la propia librería next-themes, no es un error de mi código. Se debe a que el tema se resuelve en el cliente y no en el servidor, por lo que necesitamos esperar a que el componente se monte para poder acceder al tema resuelto.
 
   if (!mounted) {
     return <div className="h-9 w-9" aria-hidden />;
