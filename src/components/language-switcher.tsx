@@ -1,55 +1,109 @@
 "use client";
 
-import { Globe } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { ChevronDown, Globe } from "lucide-react";
+import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
 import { useLanguage } from "@/components/language-provider";
-import { localeNames, locales } from "@/i18n/dictionaries";
+import { localeNames, locales, type Locale } from "@/i18n/dictionaries";
+import { ICON_STROKE } from "@/lib/ui";
 
 export function LanguageSwitcher() {
-  const { locale, setLocale } = useLanguage();
+  const { locale, setLocale, t } = useLanguage();
   const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const optionRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const menuId = useId();
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (ref.current && !ref.current.contains(event.target as Node)) {
-        setOpen(false);
-      }
+    if (!open) return;
+
+    // Moving focus into the menu lets the arrow keys start from the current language.
+    optionRefs.current[locales.indexOf(locale)]?.focus();
+
+    function handlePointerDown(event: PointerEvent) {
+      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
     }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, [open, locale]);
+
+  function closeAndFocusButton() {
+    setOpen(false);
+    buttonRef.current?.focus();
+  }
+
+  function choose(next: Locale) {
+    setLocale(next);
+    closeAndFocusButton();
+  }
+
+  function handleMenuKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    const options = optionRefs.current;
+    const index = options.indexOf(document.activeElement as HTMLButtonElement);
+
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      event.preventDefault();
+      const step = event.key === "ArrowDown" ? 1 : -1;
+      options[(index + step + options.length) % options.length]?.focus();
+    } else if (event.key === "Escape") {
+      closeAndFocusButton();
+    } else if (event.key === "Tab") {
+      setOpen(false);
+    }
+  }
 
   return (
-    <div ref={ref} className="relative">
+    <div ref={rootRef} className="relative">
       <button
+        ref={buttonRef}
         type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-label="Change language"
-        className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background/60 text-foreground backdrop-blur-md transition-colors hover:bg-surface"
+        onClick={() => setOpen((value) => !value)}
+        aria-haspopup="menu"
+        aria-expanded={open}
+        aria-controls={menuId}
+        aria-label={`${t.ui.language}: ${localeNames[locale]}`}
+        className="inline-flex h-11 min-w-11 items-center justify-center gap-1.5 rounded-full px-3.5 text-sm font-bold leading-none tracking-[0.04em] text-foreground transition-colors hover:bg-foreground/8 active:bg-foreground/14"
       >
-        <Globe size={16} />
+        <Globe size={18} strokeWidth={ICON_STROKE} />
+        <span>{locale.toUpperCase()}</span>
+        <ChevronDown
+          size={14}
+          strokeWidth={ICON_STROKE}
+          className={`transition-transform duration-250 ${open ? "rotate-180" : ""}`}
+        />
       </button>
 
-      {open && (
-        <div className="absolute right-0 top-11 z-50 w-36 overflow-hidden rounded-xl border border-border bg-background py-1 shadow-lg">
-          {locales.map((l) => (
-            <button
-              key={l}
-              type="button"
-              onClick={() => {
-                setLocale(l);
-                setOpen(false);
-              }}
-              className={`block w-full px-3 py-2 text-left text-sm transition-colors hover:bg-surface ${
-                l === locale ? "font-semibold text-foreground" : "text-muted"
-              }`}
-            >
-              {localeNames[l]}
-            </button>
-          ))}
-        </div>
-      )}
+      <div
+        id={menuId}
+        role="menu"
+        onKeyDown={handleMenuKeyDown}
+        // Visibility flips instantly on open (so the options can take focus right away)
+        // but is transitioned on close, which keeps the menu visible while it fades out.
+        className={`absolute -right-12 top-[calc(100%+10px)] grid min-w-57 origin-top-right gap-0.5 rounded-[26px] bg-surface p-2 shadow-soft-lg duration-180 ${
+          open
+            ? "visible opacity-100 transition-[opacity,scale,translate]"
+            : "invisible -translate-y-1 scale-96 opacity-0 transition-[opacity,scale,translate,visibility]"
+        }`}
+      >
+        {locales.map((l, index) => (
+          <button
+            key={l}
+            ref={(el) => {
+              optionRefs.current[index] = el;
+            }}
+            type="button"
+            role="menuitemradio"
+            aria-checked={l === locale}
+            lang={l}
+            tabIndex={-1}
+            onClick={() => choose(l)}
+            className="flex min-h-11 items-center justify-between gap-4 rounded-full px-4 text-left text-[15px] text-foreground hover:bg-foreground/7 focus-visible:-outline-offset-2 aria-checked:bg-accent-soft aria-checked:text-accent-ink"
+          >
+            <span>{localeNames[l]}</span>
+            <span className="text-xs font-bold tracking-[0.08em] opacity-75">{l.toUpperCase()}</span>
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

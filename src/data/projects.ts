@@ -2,6 +2,8 @@ export type Project = {
   title: string;
   description: string;
   stack: string[];
+  /** Screenshot in /public (e.g. "/projects/one.png"). Without it the card shows a placeholder. */
+  image?: string;
   liveUrl?: string;
   codeUrl?: string;
 };
