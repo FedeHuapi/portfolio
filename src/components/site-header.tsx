@@ -3,7 +3,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 
 export function SiteHeader() {
   return (
-    <header className="fixed right-[clamp(12px,2vw,24px)] top-[clamp(12px,2vw,24px)] z-50 flex items-center gap-0.5 rounded-full bg-surface p-1 shadow-soft-sm transition-colors duration-400">
+    <header className="fixed inset-x-0 top-0 z-50 flex justify-end gap-2 px-4 py-3 sm:px-6 sm:py-4">
       <LanguageSwitcher />
       <ThemeToggle />
     </header>

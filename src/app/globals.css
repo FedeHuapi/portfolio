@@ -2,83 +2,28 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Tokens from the "Organic" design system (Claude Design handoff). */
 :root {
-  --background: #f5ead8;
-  --foreground: #201e1d;
-  --muted: #645c50;
-  --border: color-mix(in srgb, #201e1d 16%, transparent);
-  --surface: #ebddc5;
-
-  --accent: #c67139;
-  --on-accent: #201e1d;
-  --accent-hover: #d67f48;
-  --accent-active: #b2622d;
-  --accent-ink: #8c491a;
-  --accent-soft: #ffe1d0;
-
-  --accent-2: #7a8a5e;
-  --accent-2-soft: #e1eecc;
-  --accent-2-ink: #56633f;
-
-  --moss: #3d472b;
-  --on-moss: #f5ead8;
-  --moss-accent: #ffc6a5;
-  --moss-decor: #56633f;
-
-  --decor-1: #c67139;
-  --decor-2: #aebf92;
-
-  --elev-sm: 0 1px 2px color-mix(in srgb, #2e2b25 14%, transparent);
-  --elev-md: 0 3px 10px color-mix(in srgb, #2e2b25 16%, transparent);
-  --elev-lg: 0 12px 32px color-mix(in srgb, #2e2b25 22%, transparent);
-
-  /* next/font exposes each family as a variable; the stacks add per-language fallbacks. */
-  --heading-stack: var(--font-caprasimo), system-ui, sans-serif;
-  --body-stack: var(--font-figtree), system-ui, sans-serif;
-
-  color-scheme: light;
+  --background: #edeff7;
+  --foreground: #12163a;
+  --muted: #545a80;
+  --border: #cdd1e6;
+  --surface: #e2e5f3;
+  --accent: #2d3cff;
+  --on-accent: #ffffff;
+  --orb-2: #c04bff;
+  --orb-3: #00b7d6;
 }
 
 .dark {
-  --background: #2e2b25;
-  --foreground: #f5ead8;
-  --muted: #c0b6a5;
-  --border: color-mix(in srgb, #f5ead8 16%, transparent);
-  --surface: #39352e;
-
-  --accent: #f6a06b;
-  --on-accent: #2e2b25;
-  --accent-hover: #ffc6a5;
-  --accent-active: #d67f48;
-  --accent-ink: #ffc6a5;
-  --accent-soft: #643312;
-
-  --accent-2: #aebf92;
-  --accent-2-soft: #272e1b;
-  --accent-2-ink: #ccdbb2;
-
-  --decor-1: #8c491a;
-  --decor-2: #56633f;
-
-  --elev-sm: 0 0 0 1px color-mix(in srgb, #f5ead8 7%, transparent),
-    0 1px 2px color-mix(in srgb, #201e1d 40%, transparent);
-  --elev-md: 0 0 0 1px color-mix(in srgb, #f5ead8 8%, transparent),
-    0 4px 14px color-mix(in srgb, #201e1d 45%, transparent);
-  --elev-lg: 0 0 0 1px color-mix(in srgb, #f5ead8 9%, transparent),
-    0 14px 36px color-mix(in srgb, #201e1d 55%, transparent);
-
-  color-scheme: dark;
-}
-
-html:lang(ja) {
-  --heading-stack: var(--font-caprasimo), var(--font-zen-maru), sans-serif;
-  --body-stack: var(--font-figtree), var(--font-zen-maru), sans-serif;
-}
-
-html:lang(zh) {
-  --heading-stack: var(--font-caprasimo), var(--font-noto-sc), "PingFang SC", "Microsoft YaHei", sans-serif;
-  --body-stack: var(--font-figtree), var(--font-noto-sc), "PingFang SC", "Microsoft YaHei", sans-serif;
+  --background: #0c1024;
+  --foreground: #e9ecff;
+  --muted: #9aa1c9;
+  --border: #252b52;
+  --surface: #141a3a;
+  --accent: #94a2ff;
+  --on-accent: #0c1024;
+  --orb-2: #b45cff;
+  --orb-3: #23c3e0;
 }
 
 @theme inline {
@@ -89,148 +34,129 @@ html:lang(zh) {
   --color-surface: var(--surface);
   --color-accent: var(--accent);
   --color-on-accent: var(--on-accent);
-  --color-accent-hover: var(--accent-hover);
-  --color-accent-active: var(--accent-active);
-  --color-accent-ink: var(--accent-ink);
-  --color-accent-soft: var(--accent-soft);
-  --color-accent-2: var(--accent-2);
-  --color-accent-2-soft: var(--accent-2-soft);
-  --color-accent-2-ink: var(--accent-2-ink);
-  --color-moss: var(--moss);
-  --color-on-moss: var(--on-moss);
-  --color-moss-accent: var(--moss-accent);
-  --color-moss-decor: var(--moss-decor);
-  --color-decor-1: var(--decor-1);
-  --color-decor-2: var(--decor-2);
-
-  --shadow-soft-sm: var(--elev-sm);
-  --shadow-soft-md: var(--elev-md);
-  --shadow-soft-lg: var(--elev-lg);
-
-  --font-sans: var(--body-stack);
-  --font-heading: var(--heading-stack);
-  --font-display: var(--font-fraunces), Georgia, serif;
-
-  --ease-organic: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
 }
 
-/* Base styles live in a layer so Tailwind utilities can still override them. */
-@layer base {
-  * {
-    border-color: var(--border);
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    html {
-      scroll-behavior: smooth;
-    }
-  }
-
-  body {
-    background: var(--background);
-    color: var(--foreground);
-    font-family: var(--font-sans);
-    font-size: 17px;
-    line-height: 1.6;
-    overflow-x: hidden;
-    transition: background-color 0.4s ease, color 0.4s ease;
-  }
-
-  h1,
-  h2,
-  h3 {
-    font-family: var(--font-heading);
-    font-weight: 400;
-  }
-
-  :lang(ja),
-  :lang(zh) {
-    line-break: strict;
-  }
-
-  ::selection {
-    background: color-mix(in srgb, var(--accent) 35%, transparent);
-  }
-
-  :focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-  }
+* {
+  border-color: var(--border);
 }
 
-/* Hero name: every letter is its own span so its weight can follow the pointer. */
-.hero-letter {
-  font-variation-settings: "wght" 380, "SOFT" 100, "WONK" 0;
-  transition: font-variation-settings 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+html {
+  scroll-behavior: smooth;
 }
 
-/* Organic blobs: they slowly change shape. */
-@media (prefers-reduced-motion: no-preference) {
-  .blob-morph {
-    animation: morph 22s ease-in-out infinite alternate;
-  }
-
-  .blob-morph-slow {
-    animation: morph 26s ease-in-out infinite alternate;
-  }
-
-  .blob-bob {
-    animation: bob 9s ease-in-out infinite alternate;
-  }
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-@keyframes morph {
-  50% {
-    border-radius: 44% 56% 40% 60% / 58% 42% 58% 42%;
-  }
-  100% {
-    border-radius: 55% 45% 62% 38% / 42% 55% 45% 58%;
-  }
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
 }
 
-@keyframes bob {
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Hero: one entrance for the whole block, then the name reacts to the pointer. */
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
   to {
-    transform: translate(-6px, 10px);
+    opacity: 1;
+    transform: none;
   }
 }
 
-/* Project placeholder until there is a real screenshot. */
-.project-placeholder {
-  background: repeating-linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--foreground) 7%, transparent) 0 2px,
-    transparent 2px 14px
-  );
+.hero-in {
+  animation: hero-in 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
-/* Contact email: the underline grows from the left on hover. */
-.email-link {
-  background: linear-gradient(currentColor, currentColor) 0 100% / 0 4px no-repeat;
-  transition: background-size 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+/* Page background: three soft orbs drifting on their own, out of sync. */
+.bg-fx {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
 }
 
-.email-link:hover {
-  background-size: 100% 4px;
+.bg-orb {
+  position: absolute;
+  width: 55vmax;
+  height: 55vmax;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.32;
+  will-change: transform;
 }
 
-/* Reveal on scroll: only hidden once JS confirms it can animate them (see RevealObserver). */
-.motion .reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+.dark .bg-orb {
+  opacity: 0.4;
 }
 
-.motion .reveal.in {
-  opacity: 1;
-  transform: none;
+.bg-orb-a {
+  top: -15vmax;
+  left: -10vmax;
+  background: radial-gradient(closest-side, var(--accent), transparent);
+  animation: orb-a 14s ease-in-out infinite alternate;
+}
+
+.bg-orb-b {
+  right: -15vmax;
+  top: 20vh;
+  background: radial-gradient(closest-side, var(--orb-2), transparent);
+  animation: orb-b 18s ease-in-out infinite alternate;
+}
+
+.bg-orb-c {
+  bottom: -20vmax;
+  left: 20vw;
+  background: radial-gradient(closest-side, var(--orb-3), transparent);
+  animation: orb-c 22s ease-in-out infinite alternate;
+}
+
+@keyframes orb-a {
+  to {
+    transform: translate3d(55vw, 35vh, 0) scale(1.25);
+  }
+}
+
+@keyframes orb-b {
+  to {
+    transform: translate3d(-55vw, -25vh, 0) scale(0.8);
+  }
+}
+
+@keyframes orb-c {
+  to {
+    transform: translate3d(40vw, -45vh, 0) scale(1.2);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .bg-orb {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
     transition-duration: 0.01ms !important;
     transition-delay: 0ms !important;
-    animation: none !important;
+    animation-duration: 0.01ms !important;
   }
 }
+

@@ -33,7 +33,6 @@ export type Dictionary = {
     heading: string;
     viewLive: string;
     viewCode: string;
-    screenshot: string;
   };
   about: {
     heading: string;
@@ -45,11 +44,6 @@ export type Dictionary = {
     cta: string;
     copy: string;
     copied: string;
-    made: string;
-  };
-  ui: {
-    theme: string;
-    language: string;
   };
 };
 
@@ -65,7 +59,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       heading: "Selected projects",
       viewLive: "Live",
       viewCode: "Code",
-      screenshot: "screenshot",
     },
     about: {
       heading: "About",
@@ -78,11 +71,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       cta: "Send me an email",
       copy: "Copy email",
       copied: "Copied",
-      made: "Designed and built with care.",
-    },
-    ui: {
-      theme: "Toggle theme",
-      language: "Language",
     },
   },
   es: {
@@ -96,7 +84,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       heading: "Proyectos seleccionados",
       viewLive: "Demo",
       viewCode: "Código",
-      screenshot: "captura",
     },
     about: {
       heading: "Sobre mí",
@@ -109,11 +96,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       cta: "Enviarme un email",
       copy: "Copiar email",
       copied: "Copiado",
-      made: "Diseñado y construido con cuidado.",
-    },
-    ui: {
-      theme: "Cambiar tema",
-      language: "Idioma",
     },
   },
   pt: {
@@ -127,7 +109,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       heading: "Projetos selecionados",
       viewLive: "Demo",
       viewCode: "Código",
-      screenshot: "captura",
     },
     about: {
       heading: "Sobre mim",
@@ -140,11 +121,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       cta: "Enviar um email",
       copy: "Copiar email",
       copied: "Copiado",
-      made: "Projetado e construído com cuidado.",
-    },
-    ui: {
-      theme: "Mudar tema",
-      language: "Idioma",
     },
   },
   fr: {
@@ -158,7 +134,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       heading: "Projets sélectionnés",
       viewLive: "Démo",
       viewCode: "Code",
-      screenshot: "capture",
     },
     about: {
       heading: "À propos",
@@ -171,11 +146,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       cta: "M'envoyer un email",
       copy: "Copier l'email",
       copied: "Copié",
-      made: "Conçu et développé avec soin.",
-    },
-    ui: {
-      theme: "Changer de thème",
-      language: "Langue",
     },
   },
   de: {
@@ -189,7 +159,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       heading: "Ausgewählte Projekte",
       viewLive: "Live",
       viewCode: "Code",
-      screenshot: "Screenshot",
     },
     about: {
       heading: "Über mich",
@@ -202,11 +171,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       cta: "E-Mail senden",
       copy: "E-Mail kopieren",
       copied: "Kopiert",
-      made: "Mit Sorgfalt gestaltet und entwickelt.",
-    },
-    ui: {
-      theme: "Design wechseln",
-      language: "Sprache",
     },
   },
   it: {
@@ -220,7 +184,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       heading: "Progetti selezionati",
       viewLive: "Demo",
       viewCode: "Codice",
-      screenshot: "screenshot",
     },
     about: {
       heading: "Chi sono",
@@ -233,11 +196,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       cta: "Inviami un'email",
       copy: "Copia l'email",
       copied: "Copiato",
-      made: "Progettato e sviluppato con cura.",
-    },
-    ui: {
-      theme: "Cambia tema",
-      language: "Lingua",
     },
   },
   ja: {
@@ -251,7 +209,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       heading: "主な制作物",
       viewLive: "デモ",
       viewCode: "コード",
-      screenshot: "スクリーンショット",
     },
     about: {
       heading: "私について",
@@ -264,11 +221,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       cta: "メールを送る",
       copy: "メールをコピー",
       copied: "コピーしました",
-      made: "丁寧にデザインし、つくりました。",
-    },
-    ui: {
-      theme: "テーマを切り替え",
-      language: "言語",
     },
   },
   zh: {
@@ -282,7 +234,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       heading: "精选项目",
       viewLive: "在线演示",
       viewCode: "代码",
-      screenshot: "截图",
     },
     about: {
       heading: "关于我",
@@ -295,11 +246,6 @@ export const dictionaries: Record<Locale, Dictionary> = {
       cta: "给我发邮件",
       copy: "复制邮箱",
       copied: "已复制",
-      made: "用心设计与打造。",
-    },
-    ui: {
-      theme: "切换主题",
-      language: "语言",
     },
   },
 };
