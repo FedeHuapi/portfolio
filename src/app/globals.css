@@ -48,6 +48,8 @@
 
   html {
     scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--accent) 55%, transparent) transparent;
   }
 
   body {
@@ -67,6 +69,37 @@
     outline-offset: 3px;
     border-radius: 6px;
   }
+}
+
+/* Same thin, themed scrollbar for browsers without scrollbar-width. */
+@supports not (scrollbar-width: thin) {
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--accent) 55%, transparent);
+    background-clip: content-box;
+    border: 3px solid transparent;
+    border-radius: 999px;
+  }
+}
+
+/* Scroll reveal (see Reveal): blocks ease in once, without any sudden movement. */
+[data-reveal] {
+  transition:
+    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+[data-reveal="hidden"] {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 /* Hero: one entrance for the whole block, then the name reacts to the pointer. */
