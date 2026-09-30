@@ -2,8 +2,9 @@
 
 import { ArrowUpRight, Check, Copy, Github, Linkedin } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { SiWhatsapp } from "react-icons/si";
 import { useLanguage } from "@/components/language-provider";
-import { CONTACT } from "@/lib/contact";
+import { CONTACT, whatsappLink } from "@/lib/contact";
 
 const iconLink =
   "flex h-10 w-10 items-center justify-center rounded-full border border-border transition-colors hover:border-accent hover:text-accent";
@@ -30,17 +31,27 @@ export function Outro() {
   }
 
   return (
-    <section className="border-t px-6 pb-10 pt-20 sm:pt-24">
-      <div className="mx-auto max-w-5xl">
+    <section className="pb-10 pt-12 sm:pt-16">
+      <div className="mx-auto max-w-5xl px-6">
         <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
           {t.outro.heading}
         </h2>
         <p className="mt-3 max-w-md text-base text-muted sm:text-lg">{t.outro.body}</p>
 
         <a
+          href={whatsappLink(t.hero.whatsappMessage)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-on-accent transition-transform hover:translate-y-0.5"
+        >
+          <SiWhatsapp size={16} />
+          {t.outro.whatsapp}
+        </a>
+
+        <a
           href={CONTACT.email}
           aria-label={`${t.outro.cta}: ${address}`}
-          className="group mt-10 flex items-start gap-2 font-display text-[clamp(1.15rem,3.8vw,2.5rem)] font-semibold leading-tight tracking-tight transition-colors hover:text-accent"
+          className="group mt-8 flex items-start gap-2 font-display text-[clamp(1.15rem,3.8vw,2.5rem)] font-semibold leading-tight tracking-tight transition-colors hover:text-accent"
         >
           <span className="break-all underline decoration-2 underline-offset-8 decoration-accent">
             {address}
@@ -60,7 +71,7 @@ export function Outro() {
           <span role="status">{copied ? t.outro.copied : t.outro.copy}</span>
         </button>
 
-        <div className="mt-20 flex flex-wrap items-center justify-between gap-4">
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-muted">© {year} Federico Curto</p>
           <div className="flex gap-3">
             <a href={CONTACT.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className={iconLink}>

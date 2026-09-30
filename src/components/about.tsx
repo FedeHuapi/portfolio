@@ -15,6 +15,18 @@ export function About() {
           {t.about.body}
         </p>
       </div>
+
+      <div className="mt-14">
+        <h3 className="font-display text-xl font-semibold tracking-tight">{t.about.howHeading}</h3>
+        <ul className="mt-6 grid gap-8 sm:grid-cols-3 sm:gap-10">
+          {t.about.items.map((item) => (
+            <li key={item.title}>
+              <p className="font-display text-lg font-semibold tracking-tight">{item.title}</p>
+              <p className="mt-2 text-sm text-muted sm:text-base">{item.text}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }
