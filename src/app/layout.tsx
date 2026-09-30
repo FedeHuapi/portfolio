@@ -18,11 +18,11 @@ const bricolage = Bricolage_Grotesque({
 export const metadata: Metadata = {
   title: "Federico Curto — Web Developer",
   description:
-    "Portfolio of Federico Curto — web developer building fast, well-crafted web products with React, Next.js and TypeScript.",
+    "Federico Curto — web developer focused on frontend and DevOps. Custom web applications and websites, from design to deployment, with Next.js, React and Tailwind CSS.",
   openGraph: {
     title: "Federico Curto — Web Developer",
     description:
-      "Portfolio of Federico Curto — web developer building fast, well-crafted web products.",
+      "Custom web applications and websites, from design to deployment. Frontend and DevOps.",
     type: "website",
   },
 };

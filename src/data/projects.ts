@@ -6,19 +6,8 @@ export type Project = {
   stack: string[];
   liveUrl?: string;
   codeUrl?: string;
-  /** Path under /public. Optional — placeholders below don't have one yet. */
+  /** Path under /public. Optional. */
   image?: string;
-};
-
-const placeholderDescription: Record<Locale, string> = {
-  en: "A short description of the problem solved and the result achieved.",
-  es: "Una breve descripción del problema resuelto y el resultado logrado.",
-  pt: "Uma breve descrição do problema resolvido e do resultado alcançado.",
-  fr: "Une brève description du problème résolu et du résultat obtenu.",
-  de: "Eine kurze Beschreibung des gelösten Problems und des erzielten Ergebnisses.",
-  it: "Una breve descrizione del problema risolto e del risultato ottenuto.",
-  ja: "解決した課題と得られた成果についての簡単な説明。",
-  zh: "对已解决问题和取得成果的简要说明。",
 };
 
 export const projects: Project[] = [
@@ -38,19 +27,5 @@ export const projects: Project[] = [
     liveUrl: "https://www.mawida.ar",
     codeUrl: "https://github.com/FedeHuapi/mawidakayaks",
     image: "/projects/mawida.jpg",
-  },
-  {
-    title: "Project Two",
-    description: placeholderDescription,
-    stack: ["React", "Node.js", "PostgreSQL"],
-    liveUrl: "#",
-    codeUrl: "#",
-  },
-  {
-    title: "Project Three",
-    description: placeholderDescription,
-    stack: ["Next.js", "Tailwind"],
-    liveUrl: "#",
-    codeUrl: "#",
   },
 ];

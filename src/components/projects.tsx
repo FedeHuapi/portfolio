@@ -22,7 +22,7 @@ export function Projects() {
         {t.projects.heading}
       </h2>
 
-      <ul className="mt-10 border-t">
+      <ul className="mt-10">
         {projects.map((project) => {
           const url = primaryUrl(project);
 
@@ -30,7 +30,7 @@ export function Projects() {
             <li
               key={project.title}
               onClick={url ? () => window.open(url, "_blank", "noopener,noreferrer") : undefined}
-              className={`group grid gap-6 border-b py-7 transition-colors duration-300 ease-out hover:bg-accent/5 md:grid-cols-[1fr_auto] md:items-center md:px-4 md:py-8 md:-mx-4 ${
+              className={`group grid gap-6 py-7 transition-colors duration-300 ease-out hover:bg-accent/5 md:grid-cols-[1fr_auto] md:items-center md:px-4 md:py-8 md:-mx-4 ${
                 url ? "cursor-pointer" : ""
               }`}
             >
