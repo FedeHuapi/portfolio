@@ -3,6 +3,7 @@
 import { ArrowUpRight, Github } from "lucide-react";
 import Image from "next/image";
 import { useLanguage } from "@/components/language-provider";
+import { LoopVideo } from "@/components/loop-video";
 import { Reveal } from "@/components/reveal";
 import { projects, type Project } from "@/data/projects";
 import { stackIcon } from "@/lib/stack-icons";
@@ -43,14 +44,26 @@ export function Projects() {
               >
                 <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-7">
                   {project.image && (
-                    <div className="relative h-48 w-full shrink-0 overflow-hidden rounded-xl sm:h-32 sm:w-56">
-                      <Image
-                        src={project.image}
-                        alt={`${project.title} homepage screenshot`}
-                        fill
-                        sizes="(min-width: 640px) 14rem, 100vw"
-                        className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                      />
+                    <div className="relative h-48 w-full shrink-0 overflow-hidden rounded-xl sm:h-40 sm:w-72">
+                      {project.video ? (
+                        <LoopVideo
+                          webm={project.video.webm}
+                          mp4={project.video.mp4}
+                          poster={project.image}
+                          label={`${project.title} website preview`}
+                          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                        />
+                      ) : (
+                        <Image
+                          src={project.image}
+                          alt={`${project.title} website preview`}
+                          fill
+                          // Next can't re-encode animated GIFs, so they are served as they are.
+                          unoptimized={project.image.endsWith(".gif")}
+                          sizes="(min-width: 640px) 18rem, 100vw"
+                          className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                        />
+                      )}
                     </div>
                   )}
                   <div>
