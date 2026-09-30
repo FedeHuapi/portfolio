@@ -6,8 +6,10 @@ export type Project = {
   stack: string[];
   liveUrl?: string;
   codeUrl?: string;
-  /** Path under /public. Optional. */
+  /** Path under /public. Optional. Also used as the poster of the video below. */
   image?: string;
+  /** Short looping clip (paths under /public) that replaces the still image when present. */
+  video?: { webm: string; mp4: string };
 };
 
 export const projects: Project[] = [
@@ -27,5 +29,6 @@ export const projects: Project[] = [
     liveUrl: "https://www.mawida.ar",
     codeUrl: "https://github.com/FedeHuapi/mawidakayaks",
     image: "/projects/mawida.jpg",
+    video: { webm: "/projects/mawida.webm", mp4: "/projects/mawida.mp4" },
   },
 ];
