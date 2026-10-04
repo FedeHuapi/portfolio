@@ -36,6 +36,7 @@ export type Dictionary = {
     heading: string;
     viewLive: string;
     viewCode: string;
+    inDevelopment: string;
   };
   about: {
     heading: string;
@@ -69,6 +70,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       heading: "Selected projects",
       viewLive: "Live",
       viewCode: "Code",
+      inDevelopment: "In development",
     },
     about: {
       heading: "What I do",
@@ -114,6 +116,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       heading: "Proyectos seleccionados",
       viewLive: "Demo",
       viewCode: "Código",
+      inDevelopment: "En desarrollo",
     },
     about: {
       heading: "Qué hago",
@@ -159,6 +162,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       heading: "Projetos selecionados",
       viewLive: "Demo",
       viewCode: "Código",
+      inDevelopment: "Em desenvolvimento",
     },
     about: {
       heading: "O que eu faço",
@@ -204,6 +208,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       heading: "Projets sélectionnés",
       viewLive: "Démo",
       viewCode: "Code",
+      inDevelopment: "En développement",
     },
     about: {
       heading: "Ce que je fais",
@@ -249,6 +254,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       heading: "Ausgewählte Projekte",
       viewLive: "Live",
       viewCode: "Code",
+      inDevelopment: "In Entwicklung",
     },
     about: {
       heading: "Was ich mache",
@@ -294,6 +300,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       heading: "Progetti selezionati",
       viewLive: "Demo",
       viewCode: "Codice",
+      inDevelopment: "In sviluppo",
     },
     about: {
       heading: "Cosa faccio",
@@ -339,6 +346,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       heading: "主な制作物",
       viewLive: "デモ",
       viewCode: "コード",
+      inDevelopment: "開発中",
     },
     about: {
       heading: "できること",
@@ -384,6 +392,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       heading: "精选项目",
       viewLive: "在线演示",
       viewCode: "代码",
+      inDevelopment: "开发中",
     },
     about: {
       heading: "我做什么",

@@ -1,8 +1,10 @@
 import type { IconType } from "react-icons";
 import {
+  SiFastapi,
   SiNextdotjs,
   SiNodedotjs,
   SiPostgresql,
+  SiPython,
   SiReact,
   SiTailwindcss,
   SiTypescript,
@@ -17,6 +19,8 @@ const iconsByPattern: [RegExp, IconType][] = [
   [/tailwind/i, SiTailwindcss],
   [/node/i, SiNodedotjs],
   [/postgres/i, SiPostgresql],
+  [/python/i, SiPython],
+  [/fastapi/i, SiFastapi],
 ];
 
 export function stackIcon(tech: string): IconType | null {
