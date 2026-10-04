@@ -67,9 +67,16 @@ export function Projects() {
                     </div>
                   )}
                   <div>
-                    <h3 className="font-display text-2xl font-semibold tracking-tight transition-colors duration-300 ease-out group-hover:text-accent sm:text-3xl">
-                      {project.title}
-                    </h3>
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                      <h3 className="font-display text-2xl font-semibold tracking-tight transition-colors duration-300 ease-out group-hover:text-accent sm:text-3xl">
+                        {project.title}
+                      </h3>
+                      {project.inDevelopment && (
+                        <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+                          {t.projects.inDevelopment}
+                        </span>
+                      )}
+                    </div>
                     <p className="mt-2 max-w-xl text-sm text-muted sm:text-base">
                       {project.description[locale]}
                     </p>

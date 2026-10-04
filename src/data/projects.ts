@@ -10,6 +10,8 @@ export type Project = {
   image?: string;
   /** Short looping clip (paths under /public) that replaces the still image when present. */
   video?: { webm: string; mp4: string };
+  /** Shows an "in development" tag. Use it while the project has no public launch yet. */
+  inDevelopment?: boolean;
 };
 
 export const projects: Project[] = [
@@ -30,5 +32,22 @@ export const projects: Project[] = [
     codeUrl: "https://github.com/FedeHuapi/mawidakayaks",
     image: "/projects/mawida.jpg",
     video: { webm: "/projects/mawida.webm", mp4: "/projects/mawida.mp4" },
+  },
+  {
+    title: "Mamunis",
+    description: {
+      en: "Online store for a children's clothing brand. A FastAPI and PostgreSQL API covers the catalog, cart and checkout (as a guest or with an account), and a React storefront is being built on top of it. Automated tests and dependency audits run on GitHub Actions.",
+      es: "Tienda online para una marca de ropa infantil. Una API en FastAPI y PostgreSQL cubre catálogo, carrito y compra (como invitado o con cuenta), y encima se está construyendo la tienda en React. Los tests automáticos y la auditoría de dependencias corren en GitHub Actions.",
+      pt: "Loja online para uma marca de roupas infantis. Uma API em FastAPI e PostgreSQL cobre catálogo, carrinho e compra (como convidado ou com conta), e uma loja em React está sendo construída por cima. Testes automatizados e auditoria de dependências rodam no GitHub Actions.",
+      fr: "Boutique en ligne pour une marque de vêtements pour enfants. Une API FastAPI et PostgreSQL gère le catalogue, le panier et la commande (en invité ou avec un compte), et une vitrine React est en cours de construction par-dessus. Les tests automatisés et l'audit des dépendances s'exécutent sur GitHub Actions.",
+      de: "Onlineshop für eine Kindermodemarke. Eine API mit FastAPI und PostgreSQL deckt Katalog, Warenkorb und Bestellung ab (als Gast oder mit Konto), darauf entsteht ein React-Shop. Automatisierte Tests und Abhängigkeitsprüfungen laufen auf GitHub Actions.",
+      it: "Negozio online per un marchio di abbigliamento per bambini. Un'API in FastAPI e PostgreSQL gestisce catalogo, carrello e acquisto (come ospite o con account), e sopra è in costruzione una vetrina in React. Test automatici e audit delle dipendenze girano su GitHub Actions.",
+      ja: "子ども服ブランドのオンラインストア。FastAPIとPostgreSQLのAPIがカタログ、カート、購入（ゲストまたはアカウント）を担い、その上にReactのストアフロントを構築中です。自動テストと依存関係の監査はGitHub Actionsで実行しています。",
+      zh: "为童装品牌打造的网上商店。基于 FastAPI 和 PostgreSQL 的 API 负责商品目录、购物车和结账（访客或账号均可），React 店面正在其之上开发。自动化测试和依赖审计在 GitHub Actions 上运行。",
+    },
+    stack: ["Python", "FastAPI", "PostgreSQL", "React", "TypeScript", "Tailwind CSS"],
+    codeUrl: "https://github.com/FedeHuapi/mamunis",
+    image: "/projects/mamunisproject.jpeg",
+    inDevelopment: true,
   },
 ];
