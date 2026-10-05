@@ -90,7 +90,7 @@ export function LanguageSwitcher() {
             lang={l}
             tabIndex={-1}
             onClick={() => choose(l)}
-            className="flex min-h-9 items-center justify-between gap-3 rounded-lg px-3 py-1.5 text-left text-sm text-muted transition-colors hover:bg-surface aria-checked:font-semibold aria-checked:text-foreground"
+            className="flex min-h-11 items-center justify-between gap-3 rounded-lg px-3 py-1.5 text-left text-sm text-muted transition-colors hover:bg-surface aria-checked:font-semibold aria-checked:text-foreground"
           >
             {localeNames[l]}
           </button>
