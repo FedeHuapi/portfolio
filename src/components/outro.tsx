@@ -1,14 +1,10 @@
 "use client";
 
-import { ArrowUpRight, Check, Copy, Github, Linkedin } from "lucide-react";
+import { ArrowUpRight, Check, Copy } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { SiWhatsapp } from "react-icons/si";
 import { useLanguage } from "@/components/language-provider";
 import { Reveal } from "@/components/reveal";
-import { CONTACT, whatsappLink } from "@/lib/contact";
-
-const iconLink =
-  "flex h-10 w-10 items-center justify-center rounded-full border border-border transition-colors hover:border-accent hover:text-accent";
+import { CONTACT } from "@/lib/contact";
 
 export function Outro() {
   const { t } = useLanguage();
@@ -43,19 +39,9 @@ export function Outro() {
 
         <Reveal delay={120}>
           <a
-            href={whatsappLink(t.hero.whatsappMessage)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-on-accent transition-transform hover:translate-y-0.5"
-          >
-            <SiWhatsapp size={16} />
-            {t.outro.whatsapp}
-          </a>
-
-          <a
             href={CONTACT.email}
             aria-label={`${t.outro.cta}: ${address}`}
-            className="group mt-8 flex items-start gap-2 font-display text-[clamp(1.15rem,3.8vw,2.5rem)] font-semibold leading-tight tracking-tight transition-colors hover:text-accent"
+            className="group -my-2 mt-6 flex items-start gap-2 py-2 font-display text-[clamp(1.15rem,3.8vw,2.5rem)] font-semibold leading-tight tracking-tight transition-colors hover:text-accent"
           >
             <span className="break-all underline decoration-2 underline-offset-8 decoration-accent">
               {address}
@@ -77,17 +63,7 @@ export function Outro() {
         </Reveal>
 
         <Reveal delay={240} className="mt-10">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <p className="text-sm text-muted">© {year} Federico Curto</p>
-            <div className="flex gap-3">
-              <a href={CONTACT.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className={iconLink}>
-                <Github size={16} />
-              </a>
-              <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className={iconLink}>
-                <Linkedin size={16} />
-              </a>
-            </div>
-          </div>
+          <p className="text-sm text-muted">© {year} Federico Curto</p>
         </Reveal>
       </div>
     </section>

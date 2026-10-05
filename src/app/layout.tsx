@@ -3,6 +3,7 @@ import { Bricolage_Grotesque, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { LanguageProvider } from "@/components/language-provider";
+import { SITE_URL } from "@/lib/site";
 
 const instrumentSans = Instrument_Sans({
   variable: "--font-body",
@@ -16,6 +17,7 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Federico Curto — Web Developer",
   description:
     "Federico Curto — web developer focused on frontend and DevOps. Custom web applications and websites, from design to deployment, with Next.js, React and Tailwind CSS.",
