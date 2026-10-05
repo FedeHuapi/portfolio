@@ -1,11 +1,10 @@
 "use client";
 
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Mail } from "lucide-react";
 import type { MouseEvent } from "react";
-import { SiWhatsapp } from "react-icons/si";
 import { HeroName } from "@/components/hero-name";
 import { useLanguage } from "@/components/language-provider";
-import { whatsappLink } from "@/lib/contact";
+import { CONTACT } from "@/lib/contact";
 
 export function Hero() {
   const { t } = useLanguage();
@@ -27,21 +26,16 @@ export function Hero() {
 
       <div className="mt-8 flex flex-col items-start gap-6">
         <div className="max-w-2xl">
-          <p className="font-display text-xl font-semibold tracking-tight sm:text-2xl">
-            {t.hero.tagline}
-          </p>
-          <p className="mt-3 text-base text-muted sm:text-lg">{t.hero.subtitle}</p>
+          <p className="text-base text-muted sm:text-lg">{t.hero.subtitle}</p>
         </div>
 
         <div className="flex flex-wrap gap-3">
           <a
-            href={whatsappLink(t.hero.whatsappMessage)}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={CONTACT.email}
             className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-on-accent transition-transform hover:translate-y-0.5"
           >
-            <SiWhatsapp size={16} />
-            {t.hero.whatsapp}
+            <Mail size={16} />
+            {t.outro.cta}
           </a>
           <a
             href="#projects"

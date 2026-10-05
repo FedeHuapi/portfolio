@@ -2,10 +2,9 @@
 
 import { ArrowUpRight, Check, Copy } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { SiWhatsapp } from "react-icons/si";
 import { useLanguage } from "@/components/language-provider";
 import { Reveal } from "@/components/reveal";
-import { CONTACT, whatsappLink } from "@/lib/contact";
+import { CONTACT } from "@/lib/contact";
 
 export function Outro() {
   const { t } = useLanguage();
@@ -39,16 +38,6 @@ export function Outro() {
         </Reveal>
 
         <Reveal delay={120}>
-          <a
-            href={whatsappLink(t.hero.whatsappMessage)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-on-accent transition-transform hover:translate-y-0.5"
-          >
-            <SiWhatsapp size={16} />
-            {t.outro.whatsapp}
-          </a>
-
           <a
             href={CONTACT.email}
             aria-label={`${t.outro.cta}: ${address}`}
