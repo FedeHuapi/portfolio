@@ -2,7 +2,7 @@
 
 Portfolio y sitio de servicios de Federico Curto, desarrollador web con foco en frontend y DevOps. Presenta lo que construyo, cómo trabajo y los proyectos que publiqué, en ocho idiomas.
 
-**Sitio en vivo:** https://portfolio-indol-ten-31.vercel.app
+**Sitio en vivo:** https://federicocurto.vercel.app
 
 
 ## Características
