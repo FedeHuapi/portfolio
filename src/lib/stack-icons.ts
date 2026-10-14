@@ -7,7 +7,9 @@ import {
   SiPython,
   SiReact,
   SiTailwindcss,
+  SiThreedotjs,
   SiTypescript,
+  SiVite,
 } from "react-icons/si";
 
 // Matched by substring so version suffixes ("Next.js 16", "React 19") still hit —
@@ -21,6 +23,8 @@ const iconsByPattern: [RegExp, IconType][] = [
   [/postgres/i, SiPostgresql],
   [/python/i, SiPython],
   [/fastapi/i, SiFastapi],
+  [/three/i, SiThreedotjs],
+  [/vite/i, SiVite],
 ];
 
 export function stackIcon(tech: string): IconType | null {
