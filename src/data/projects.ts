@@ -50,4 +50,20 @@ export const projects: Project[] = [
     image: "/projects/mamunisproject.jpeg",
     inDevelopment: true,
   },
+  {
+    title: "Tuorigami",
+    description: {
+      en: "Interactive origami guide. Each model is described as data, a list of folds, and a custom engine animates every fold in 3D, lets you fold the paper yourself by dragging it, and generates the step diagrams for a printable guide.",
+      es: "Guía interactiva de origami. Cada modelo se describe como datos, una lista de pliegues, y un motor propio anima cada pliegue en 3D, te deja doblar el papel vos mismo arrastrándolo y genera los diagramas de cada paso para una guía imprimible.",
+      pt: "Guia interativo de origami. Cada modelo é descrito como dados, uma lista de dobras, e um motor próprio anima cada dobra em 3D, permite dobrar o papel você mesmo arrastando e gera os diagramas de cada passo para um guia imprimível.",
+      fr: "Guide interactif d'origami. Chaque modèle est décrit comme des données, une liste de plis, et un moteur maison anime chaque pli en 3D, permet de plier le papier soi-même en le faisant glisser et génère les schémas de chaque étape pour un guide imprimable.",
+      de: "Interaktive Origami-Anleitung. Jedes Modell ist als Daten beschrieben, als Liste von Faltungen, und eine eigene Engine animiert jede Faltung in 3D, lässt dich das Papier selbst durch Ziehen falten und erzeugt die Diagramme jedes Schritts für eine druckbare Anleitung.",
+      it: "Guida interattiva all'origami. Ogni modello è descritto come dati, un elenco di pieghe, e un motore proprio anima ogni piega in 3D, ti lascia piegare la carta trascinandola e genera i diagrammi di ogni passaggio per una guida stampabile.",
+      ja: "インタラクティブな折り紙ガイド。各モデルは折り目のリストというデータで記述され、独自のエンジンがすべての折りを3Dでアニメーションし、ドラッグして自分で紙を折ることができ、印刷できるガイド用に各手順の図も生成します。",
+      zh: "交互式折纸指南。每个模型都以数据（折痕列表）描述，自研引擎以 3D 动画呈现每一步折叠，可以拖动纸张亲手折叠，并为可打印的指南生成每一步的图解。",
+    },
+    stack: ["React", "TypeScript", "Vite", "Three.js"],
+    image: "/projects/tuorigami.jpeg",
+    inDevelopment: true,
+  },
 ];
